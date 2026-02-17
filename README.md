@@ -38,9 +38,7 @@ Automate M-Pesa USSD (*334#) flows on Android — Send Money, Paybill, Till Numb
 - **Accessibility-driven automation** — reads the USSD menu and enters your choices.
 - **Optional “Press 1 to confirm”** — app can send the final confirmation for you, then close the USSD screen after the result.
 - **SMS trigger** — run USSD from allowed numbers by sending a formatted SMS (e.g. `SM|amount` for send money).
-- **Onboarding & in-app tutorial** — quick intro and spotlight-style tips on first use.
-- **About & disclaimers** — open source, author, and usage-at-your-own-risk notice.
-
+- 
 ---
 
 ## Intended use
