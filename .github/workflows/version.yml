@@ -31,5 +31,6 @@ jobs:
           commit: "Version Packages"
           title: "Version Packages"
           createGithubReleases: false
+          branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
