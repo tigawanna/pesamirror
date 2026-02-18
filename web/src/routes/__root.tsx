@@ -24,8 +24,10 @@ export const Route = createRootRoute({
       { title: 'PesaMirror' },
       { name: 'theme-color', content: '#fafafa', media: '(prefers-color-scheme: light)' },
       { name: 'theme-color', content: '#0a0a0a', media: '(prefers-color-scheme: dark)' },
+      { property: 'og:image', content: '/ogimage.png' },
     ],
     links: [
+      { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
       { rel: 'stylesheet', href: appCss },
       {
         rel: 'manifest',
