@@ -72,6 +72,18 @@ Automate M-Pesa USSD (*334#) flows on Android — Send Money, Paybill, Till Numb
    ```
    Install the APK from `app/build/outputs/apk/debug/`, or run from Android Studio.
 
+### Quick install on device (script)
+
+The easiest way to install PesaMirror on a physical device the first time is to run the install script from the repo root:
+
+```bash
+./scripts/setup.sh
+```
+
+The script checks for ADB and Java (JDK 11+); if either is missing, it prints install instructions and **download links** for your OS (macOS, Linux, or Windows). If no device is detected, it guides you through enabling **Developer options** and **USB debugging** on your phone. Then it builds and installs the debug app on the connected device and reminds you to enable PesaMirror in **Settings → Accessibility** after opening the app.
+
+**Windows users:** Install [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools) (ADB) and [Adoptium Temurin JDK 11](https://adoptium.net/download) (Java). You can run the script from Git Bash, or open the project in Android Studio and use **Run**, or run `gradlew.bat installDebug` from Command Prompt in the repo root.
+
 ### Installing from an APK (side-loading)
 
 If you install PesaMirror from a downloaded APK (e.g. from [Releases](https://github.com/davidamunga/pesamirror/releases)) rather than the Play Store, Android will block the install by default. You need to **allow installation from unknown sources** for the app you use to open the APK (browser, file manager, etc.):
