@@ -23,6 +23,7 @@ const msg = 'Please fill all required fields.'
 const smsFormSchema = z
   .object({
     transactionType: z.string(),
+    receiver: z.string(),
     phone: z.string(),
     till: z.string(),
     business: z.string(),
@@ -103,6 +104,7 @@ function Home() {
   } = useForm<SmsFormValues>({
     defaultValues: {
       transactionType: 'SEND_MONEY',
+      receiver: '',
       phone: '',
       till: '',
       business: '',
@@ -130,7 +132,7 @@ function Home() {
       store: value.store,
       amount: value.amount,
     })
-    openSmsApp(body)
+    openSmsApp(body, value.receiver || undefined)
   }
 
   return (
@@ -272,6 +274,20 @@ function Home() {
                 placeholder="Enter amount in KES"
                 prefix="KES "
                 error={fieldState.error?.message}
+              />
+            )}
+          />
+
+          <Controller
+            name="receiver"
+            control={control}
+            render={({ field }) => (
+              <NumericKeypadDrawer
+                value={field.value}
+                onChange={field.onChange}
+                label="Send to (receiver phone number)"
+                placeholder="e.g. 0712345678 — optional"
+                enableContacts
               />
             )}
           />

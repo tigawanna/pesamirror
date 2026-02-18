@@ -55,9 +55,10 @@ export function buildSmsBody(
   }
 }
 
-/** Open the default SMS app with pre-filled body (no recipient). */
-export function openSmsApp(body: string): void {
+/** Open the default SMS app with pre-filled body. Optionally set recipient (e.g. phone number). */
+export function openSmsApp(body: string, recipient?: string): void {
   const encoded = encodeURIComponent(body)
-  const uri = `sms:?body=${encoded}`
+  const to = recipient?.trim()
+  const uri = to ? `sms:${encodeURIComponent(to)}?body=${encoded}` : `sms:?body=${encoded}`
   window.location.href = uri
 }
