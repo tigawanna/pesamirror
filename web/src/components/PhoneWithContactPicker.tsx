@@ -56,9 +56,7 @@ export function PhoneWithContactPicker({
             }) => Promise<Array<{ tel?: Array<string> }>>
           }
         }
-      ).contacts.select({
-        multiple: false,
-      })
+      ).contacts.select(['tel'], { multiple: false })
       const contact = contacts[0]
       const tel = contact.tel?.[0] ?? ''
       if (tel) {
@@ -97,7 +95,7 @@ export function PhoneWithContactPicker({
           onChange={(e) => field.handleChange(e.target.value)}
           className={cn('flex-1', className)}
         />
-        {!hasContactsApi && (
+        {hasContactsApi && (
           <Button
             type="button"
             variant="outline"
