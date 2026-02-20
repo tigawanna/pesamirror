@@ -42,9 +42,7 @@ export function VoiceCommandButton({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-muted-foreground">
-          Voice command
-        </span>
+      <div className='flex-1'/>
         {!isSupported && (
           <span className="text-xs text-muted-foreground">
             Not supported in this browser
